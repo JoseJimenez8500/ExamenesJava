@@ -1,4 +1,4 @@
-package com.claseAbstracta;
+package com.interfaces;
 
 import java.util.*;
 
