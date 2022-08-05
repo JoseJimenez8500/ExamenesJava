@@ -1,13 +1,13 @@
 package com.claseAbstracta;
 
-public class Entrenador extends SeleccionDeFutbol {
+public class Entrenador extends IntegrantesSeleccionFutbol {
 
 	public Entrenador(String nombre, String apellido) {
 		super(nombre, apellido);
 		
 	}
 	@Override
-	public void partidoFutbol() {
+	public void jugarPartido() {
 		System.out.println("Dirige un Partido (Clase Entrenador)");
 	}
 	
@@ -17,7 +17,7 @@ public class Entrenador extends SeleccionDeFutbol {
 
 
 	@Override
-	public void entrenamiento() {
+	public void entrenar() {
 		System.out.println("Dirige un entrenamiento (Clase Entrenador)");
 	}
 

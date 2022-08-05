@@ -6,7 +6,7 @@ public class Principal {
 
 	public static void main(String[] args) {
 		
-		List<SeleccionDeFutbol> integrantes = new ArrayList<SeleccionDeFutbol>();
+		List<IntegrantesSeleccionFutbol> integrantes = new ArrayList<IntegrantesSeleccionFutbol>();
 		
 		integrantes.add(new Futbolista("Javier","Hernández" ));
 		integrantes.add(new Futbolista("Guillermo","Ochoa" ));
@@ -14,17 +14,17 @@ public class Principal {
 		integrantes.add(new Masajista("Juan","Pérez" ));
 		
 		System.out.println("Entrenamiento del equipo\n");
-		for(SeleccionDeFutbol integ:integrantes) {
+		for(IntegrantesSeleccionFutbol integ:integrantes) {
 			System.out.print(integ+"->");
-			integ.entrenamiento();
+			integ.entrenar();
 			if(integ instanceof Entrenador) {
 				((Entrenador)integ).planificarEstrategia();
 			}
 		}
 		System.out.println("\nPartido de Futbol\n");
-		for(SeleccionDeFutbol integ:integrantes) {
+		for(IntegrantesSeleccionFutbol integ:integrantes) {
 			System.out.print(integ+"->");
-			integ.partidoFutbol();
+			integ.jugarPartido();
 			if(integ instanceof Futbolista) {
 				((Futbolista)integ).entrevista();
 			}

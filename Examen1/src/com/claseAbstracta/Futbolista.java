@@ -1,6 +1,6 @@
 package com.claseAbstracta;
 
-public class Futbolista extends SeleccionDeFutbol {
+public class Futbolista extends IntegrantesSeleccionFutbol {
 
 	public Futbolista(String nombre, String apellido) {
 		super(nombre, apellido);
@@ -8,7 +8,7 @@ public class Futbolista extends SeleccionDeFutbol {
 	}
 
 	@Override
-	public void partidoFutbol() {
+	public void jugarPartido() {
 		System.out.println("Juega un Partido (Clase Futbolista)");
 		
 	}
@@ -18,7 +18,7 @@ public class Futbolista extends SeleccionDeFutbol {
 	   }
 
 	@Override
-	public void entrenamiento() {
+	public void entrenar() {
 		System.out.println("Realiza un entrenamiento (Clase Futbolista)");
 		
 	}

@@ -1,6 +1,6 @@
 package com.claseAbstracta;
 
-public class Masajista extends SeleccionDeFutbol{
+public class Masajista extends IntegrantesSeleccionFutbol{
 
 	public Masajista(String nombre, String apellido) {
 		super(nombre, apellido);
@@ -8,7 +8,7 @@ public class Masajista extends SeleccionDeFutbol{
 	}
 
 	@Override
-	public void entrenamiento() {
+	public void entrenar() {
 		System.out.println("Da asistencia en el entrenamiento (Clase Masajista)");
 		
 	}

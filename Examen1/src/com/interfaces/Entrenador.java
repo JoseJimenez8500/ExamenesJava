@@ -1,6 +1,6 @@
 package com.interfaces;
 
-public class Entrenador implements SeleccionDeFutbol {
+public class Entrenador implements IntegrantesSeleccionFutbol {
 	
 	private String nombre;
 	private String apellido;
@@ -13,7 +13,7 @@ public class Entrenador implements SeleccionDeFutbol {
 	}
 
 	@Override
-	public void partidoFutbol() {
+	public void jugarPartido() {
 		System.out.println("Dirige un Partido (Clase Entrenador)");
 	}
 	
@@ -23,7 +23,7 @@ public class Entrenador implements SeleccionDeFutbol {
 
 
 	@Override
-	public void entrenamiento() {
+	public void entrenar() {
 		System.out.println("Dirige un entrenamiento (Clase Entrenador)");
 	}
 	@Override
