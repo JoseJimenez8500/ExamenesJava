@@ -7,8 +7,4 @@ public interface SeleccionDeFutbol {
 	
 	public void partidoFutbol();
 
-	
-	
-	
-	
 }

@@ -2,8 +2,8 @@ package com.interfaces;
 
 public class Entrenador implements SeleccionDeFutbol {
 	
-	String nombre;
-	String apellido;
+	private String nombre;
+	private String apellido;
 	
 	
 	public Entrenador(String nombre, String apellido) {

@@ -2,8 +2,8 @@ package com.interfaces;
 
 public class Masajista implements SeleccionDeFutbol{
 
-	String nombre;
-	String apellido;
+	private String nombre;
+	private String apellido;
 
 	public Masajista(String nombre, String apellido) {
 		super();

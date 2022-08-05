@@ -2,8 +2,8 @@ package com.interfaces;
 
 public class Futbolista implements SeleccionDeFutbol {
 
-	String nombre;
-	String apellido;
+	private String nombre;
+	private String apellido;
 
 	public Futbolista(String nombre, String apellido) {
 		super();

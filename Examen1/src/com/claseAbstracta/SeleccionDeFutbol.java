@@ -2,8 +2,8 @@ package com.claseAbstracta;
 
 public abstract class SeleccionDeFutbol {
 	
-	String nombre;
-	String apellido;
+	private String nombre;
+	private String apellido;
 
 	public SeleccionDeFutbol(String nombre, String apellido) {
 		super();
