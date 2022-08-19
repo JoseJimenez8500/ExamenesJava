@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 Estoy en main para hacer algunos cambios
+=======
+Estoy en Tercera
+>>>>>>> Tercera
