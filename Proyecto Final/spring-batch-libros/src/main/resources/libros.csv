@@ -1,0 +1,10 @@
+id,nombre,editorial,autor,genero,pais_del_autor,numero_paginas,anio_edicion,precio
+1,Don Quijote de La Mancha I,Anaya,Miguel de Cervantes,Caballeresco,Espana,517,1991,2750
+2,Don Quijote de La Mancha II,Anaya,Miguel de Cervantes,Caballeresco,Espana,611,1991,3125
+3,Historias de Nueva Orleans,Alfaguara,William Faulkner,Novela,Estados Unidos,186,1985,675
+4,El principito,Andina,Antoine SaintExupery,Aventura,Francia,120,1996,750
+5,El principe,SM,Maquiavelo,Politico,Italia,210,1995,1125
+6,Diplomacia,SM,Henry Kissinger,Politico,Alemania,825,1997,1750
+7,Los Windsor,Plaza Janes,Kitty Kelley,Biografias,Gran Bretana,620,1998,1130
+8,El ultimo Emperador,Caralt,PuYi,Autobiografias,China,353,1989,995
+9,Fortunata y Jacinta,Plaza Janes,Perez Galdos,Novela,Espana,625,1984,725

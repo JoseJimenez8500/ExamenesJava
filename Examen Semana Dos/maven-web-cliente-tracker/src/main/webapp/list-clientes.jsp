@@ -21,11 +21,10 @@
 	
 		<div id="content">
 		
-			<!-- put new button: Add Student -->
 			
 			<input type="button" value="Add Cliente" 
-				   onclick="window.location.href='add-student-form.jsp'; return false;"
-				   class="add-student-button"
+				   onclick="window.location.href='add-cliente-form.jsp'; return false;"
+				   class="add-cliente-button"
 			/>
 			
 			<table>
@@ -37,29 +36,29 @@
 					<th>Action</th>
 				</tr>
 				
-				<c:forEach var="tempStudent" items="${STUDENT_LIST}">
+				<c:forEach var="tempCliente" items="${CLIENTE_LIST}">
 					
-					<!-- set up a link for each student -->
-					<c:url var="tempLink" value="StudentControllerServlet">
+					<!-- set up a link for each cliente -->
+					<c:url var="tempLink" value="ClienteControllerServlet">
 						<c:param name="command" value="LOAD" />
-						<c:param name="studentId" value="${tempStudent.id}" />
+						<c:param name="clienteId" value="${tempCliente.id}" />
 					</c:url>
 
-					<!--  set up a link to delete a student -->
-					<c:url var="deleteLink" value="StudentControllerServlet">
+					<!--  set up a link to delete a cliente -->
+					<c:url var="deleteLink" value="ClienteControllerServlet">
 						<c:param name="command" value="DELETE" />
-						<c:param name="studentId" value="${tempStudent.id}" />
+						<c:param name="clienteId" value="${tempCliente.id}" />
 					</c:url>
 																		
 					<tr>
-						<td> ${tempStudent.nombre} </td>
-						<td> ${tempStudent.apellido} </td>
-						<td> ${tempStudent.telefono} </td>
+						<td> ${tempCliente.nombre} </td>
+						<td> ${tempCliente.apellido} </td>
+						<td> ${tempCliente.telefono} </td>
 						<td> 
 							<a href="${tempLink}">Update</a> 
 							 | 
 							<a href="${deleteLink}"
-							onclick="if (!(confirm('Are you sure you want to delete this student?'))) return false">
+							onclick="if (!(confirm('Estas seguro de eliminar este cliente?'))) return false">
 							Delete</a>	
 						</td>
 					</tr>

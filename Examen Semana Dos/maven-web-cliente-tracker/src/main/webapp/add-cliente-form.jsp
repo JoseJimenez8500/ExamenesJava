@@ -5,7 +5,7 @@
 	<title>Add Cliente</title>
 
 	<link type="text/css" rel="stylesheet" href="css/style.css">
-	<link type="text/css" rel="stylesheet" href="css/add-student-style.css">	
+	<link type="text/css" rel="stylesheet" href="css/add-cliente-style.css">	
 </head>
 
 <body>
@@ -18,7 +18,7 @@
 	<div id="container">
 		<h3>Add Cliente</h3>
 		
-		<form action="StudentControllerServlet" method="GET">
+		<form action="ClienteControllerServlet" method="GET">
 		
 			<input type="hidden" name="command" value="ADD" />
 			

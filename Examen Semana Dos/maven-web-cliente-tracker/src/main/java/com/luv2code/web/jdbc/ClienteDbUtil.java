@@ -17,9 +17,9 @@ public class ClienteDbUtil {
 		dataSource = theDataSource;
 	}
 	
-	public List<Cliente> getStudents() throws Exception {
+	public List<Cliente> getClientes() throws Exception {
 		
-		List<Cliente> students = new ArrayList<>();
+		List<Cliente> clientes = new ArrayList<>();
 		
 		Connection myConn = null;
 		Statement myStmt = null;
@@ -47,13 +47,13 @@ public class ClienteDbUtil {
 				String telefono = myRs.getString("telefono");
 				
 				// create new student object
-				Cliente tempStudent = new Cliente(id, nombre, apellido, telefono);
+				Cliente tempCliente = new Cliente(id, nombre, apellido, telefono);
 				
 				// add it to the list of students
-				students.add(tempStudent);				
+				clientes.add(tempCliente);				
 			}
 			
-			return students;		
+			return clientes;		
 		}
 		finally {
 			// close JDBC objects
@@ -81,7 +81,7 @@ public class ClienteDbUtil {
 		}
 	}
 
-	public void addStudent(Cliente theStudent) throws Exception {
+	public void addCliente(Cliente theCliente) throws Exception {
 
 		Connection myConn = null;
 		PreparedStatement myStmt = null;
@@ -98,9 +98,9 @@ public class ClienteDbUtil {
 			myStmt = myConn.prepareStatement(sql);
 			
 			// set the param values for the student
-			myStmt.setString(1, theStudent.getNombre());
-			myStmt.setString(2, theStudent.getApellido());
-			myStmt.setString(3, theStudent.getTelefono());
+			myStmt.setString(1, theCliente.getNombre());
+			myStmt.setString(2, theCliente.getApellido());
+			myStmt.setString(3, theCliente.getTelefono());
 			
 			// execute sql insert
 			myStmt.execute();
@@ -111,30 +111,30 @@ public class ClienteDbUtil {
 		}
 	}
 
-	public Cliente getStudent(String theStudentId) throws Exception {
+	public Cliente getCliente(String theClienteId) throws Exception {
 
-		Cliente theStudent = null;
+		Cliente theCliente = null;
 		
 		Connection myConn = null;
 		PreparedStatement myStmt = null;
 		ResultSet myRs = null;
-		int studentId;
+		int clienteId;
 		
 		try {
-			// convert student id to int
-			studentId = Integer.parseInt(theStudentId);
+			// convert cliente id to int
+			clienteId = Integer.parseInt(theClienteId);
 			
 			// get connection to database
 			myConn = dataSource.getConnection();
 			
-			// create sql to get selected student
+			// create sql to get selected cliente
 			String sql = "select * from cliente where id=?";
 			
 			// create prepared statement
 			myStmt = myConn.prepareStatement(sql);
 			
 			// set params
-			myStmt.setInt(1, studentId);
+			myStmt.setInt(1, clienteId);
 			
 			// execute statement
 			myRs = myStmt.executeQuery();
@@ -145,14 +145,14 @@ public class ClienteDbUtil {
 				String apellido = myRs.getString("apellido");
 				String telefono = myRs.getString("telefono");
 				
-				// use the studentId during construction
-				theStudent = new Cliente(studentId, nombre, apellido, telefono);
+				// use the clienteId during construction
+				theCliente = new Cliente(clienteId, nombre, apellido, telefono);
 			}
 			else {
-				throw new Exception("Could not find student id: " + studentId);
+				throw new Exception("Could not find student id: " + clienteId);
 			}				
 			
-			return theStudent;
+			return theCliente;
 		}
 		finally {
 			// clean up JDBC objects
@@ -160,7 +160,7 @@ public class ClienteDbUtil {
 		}
 	}
 
-	public void updateStudent(Cliente theStudent) throws Exception {
+	public void updateCliente(Cliente theCliente) throws Exception {
 		
 		Connection myConn = null;
 		PreparedStatement myStmt = null;
@@ -178,10 +178,10 @@ public class ClienteDbUtil {
 			myStmt = myConn.prepareStatement(sql);
 			
 			// set params
-			myStmt.setString(1, theStudent.getNombre());
-			myStmt.setString(2, theStudent.getApellido());
-			myStmt.setString(3, theStudent.getTelefono());
-			myStmt.setInt(4, theStudent.getId());
+			myStmt.setString(1, theCliente.getNombre());
+			myStmt.setString(2, theCliente.getApellido());
+			myStmt.setString(3, theCliente.getTelefono());
+			myStmt.setInt(4, theCliente.getId());
 			
 			// execute SQL statement
 			myStmt.execute();
@@ -192,14 +192,14 @@ public class ClienteDbUtil {
 		}
 	}
 
-	public void deleteStudent(String theStudentId) throws Exception {
+	public void deleteCliente(String theClienteId) throws Exception {
 
 		Connection myConn = null;
 		PreparedStatement myStmt = null;
 		
 		try {
 			// convert student id to int
-			int studentId = Integer.parseInt(theStudentId);
+			int clienteId = Integer.parseInt(theClienteId);
 			
 			// get connection to database
 			myConn = dataSource.getConnection();
@@ -211,7 +211,7 @@ public class ClienteDbUtil {
 			myStmt = myConn.prepareStatement(sql);
 			
 			// set params
-			myStmt.setInt(1, studentId);
+			myStmt.setInt(1, clienteId);
 			
 			// execute sql statement
 			myStmt.execute();

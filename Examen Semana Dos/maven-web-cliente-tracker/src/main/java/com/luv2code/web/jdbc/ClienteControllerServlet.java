@@ -12,14 +12,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
-/**
- * Servlet implementation class StudentControllerServlet
- */
-@WebServlet("/StudentControllerServlet")
-public class StudentControllerServlet extends HttpServlet {
+
+@WebServlet("/ClienteControllerServlet")
+public class ClienteControllerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	private ClienteDbUtil studentDbUtil;
+	private ClienteDbUtil clienteDbUtil;
 	
 	@Resource(name="jdbc/web_student_tracker")
 	private DataSource dataSource;
@@ -27,10 +25,9 @@ public class StudentControllerServlet extends HttpServlet {
 	@Override
 	public void init() throws ServletException {
 		super.init();
-		
-		// create our student db util ... and pass in the conn pool / datasource
+				
 		try {
-			studentDbUtil = new ClienteDbUtil(dataSource);
+			clienteDbUtil = new ClienteDbUtil(dataSource);
 		}
 		catch (Exception exc) {
 			throw new ServletException(exc);
@@ -40,15 +37,15 @@ public class StudentControllerServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		try {
-			// read the "command" parameter
+			
 			String theCommand = request.getParameter("command");
 			
-			// if the command is missing, then default to listing students
+			
 			if (theCommand == null) {
 				theCommand = "LIST";
 			}
 			
-			// route to the appropriate method
+			
 			switch (theCommand) {
 			
 			case "LIST":
@@ -85,32 +82,32 @@ public class StudentControllerServlet extends HttpServlet {
 	private void deleteCliente(HttpServletRequest request, HttpServletResponse response)
 		throws Exception {
 
-		// read student id from form data
-		String theStudentId = request.getParameter("studentId");
 		
-		// delete student from database
-		studentDbUtil.deleteStudent(theStudentId);
+		String theClienteId = request.getParameter("clienteId");
 		
-		// send them back to "list students" page
+		
+		clienteDbUtil.deleteCliente(theClienteId);
+		
+		
 		listClientes(request, response);
 	}
 
 	private void updateCliente(HttpServletRequest request, HttpServletResponse response)
 		throws Exception {
 
-		// read student info from form data
-		int id = Integer.parseInt(request.getParameter("studentId"));
+		// read client info from form data
+		int id = Integer.parseInt(request.getParameter("clienteId"));
 		String nombre = request.getParameter("nombre");
 		String apellido = request.getParameter("apellido");
 		String telefono = request.getParameter("telefono");
 		
-		// create a new student object
-		Cliente theStudent = new Cliente(id, nombre, apellido, telefono);
+		// create a new cliente object
+		Cliente theCliente = new Cliente(id, nombre, apellido, telefono);
 		
 		// perform update on database
-		studentDbUtil.updateStudent(theStudent);
+		clienteDbUtil.updateCliente(theCliente);
 		
-		// send them back to the "list students" page
+		// send them back to the "list clientes" page
 		listClientes(request, response);
 		
 	}
@@ -118,16 +115,16 @@ public class StudentControllerServlet extends HttpServlet {
 	private void loadCliente(HttpServletRequest request, HttpServletResponse response) 
 		throws Exception {
 
-		// read student id from form data
-		String theStudentId = request.getParameter("studentId");
+		// read cliente id from form data
+		String theClienteId = request.getParameter("clienteId");
 		
-		// get student from database (db util)
-		Cliente theStudent = studentDbUtil.getStudent(theStudentId);
+		// get cliente from database (db util)
+		Cliente theCliente = clienteDbUtil.getCliente(theClienteId);
 		
 		// place student in the request attribute
-		request.setAttribute("THE_STUDENT", theStudent);
+		request.setAttribute("THE_CLIENTE", theCliente);
 		
-		// send to jsp page: update-student-form.jsp
+		// send to jsp page: update-cliente-form.jsp
 		RequestDispatcher dispatcher = 
 				request.getRequestDispatcher("/update-cliente-form.jsp");
 		dispatcher.forward(request, response);		
@@ -140,11 +137,11 @@ public class StudentControllerServlet extends HttpServlet {
 		String apellido = request.getParameter("apellido");
 		String telefono = request.getParameter("telefono");		
 		
-		// create a new student object
-		Cliente theStudent = new Cliente(nombre, apellido, telefono);
+		// create a new cliente object
+		Cliente theCliente = new Cliente(nombre, apellido, telefono);
 		
-		// add the student to the database
-		studentDbUtil.addStudent(theStudent);
+		// add the cliente to the database
+		clienteDbUtil.addCliente(theCliente);
 				
 		// send back to main page (the student list)
 		listClientes(request, response);
@@ -153,11 +150,11 @@ public class StudentControllerServlet extends HttpServlet {
 	private void listClientes(HttpServletRequest request, HttpServletResponse response) 
 		throws Exception {
 
-		// get students from db util
-		List<Cliente> students = studentDbUtil.getStudents();
+		// get clientes from db util
+		List<Cliente> clientes = clienteDbUtil.getClientes();
 		
-		// add students to the request
-		request.setAttribute("STUDENT_LIST", students);
+		// add clientes to the request
+		request.setAttribute("CLIENTE_LIST", clientes);
 				
 		// send to JSP page (view)
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/list-clientes.jsp");

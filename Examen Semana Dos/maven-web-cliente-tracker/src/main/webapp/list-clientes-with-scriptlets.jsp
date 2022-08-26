@@ -9,9 +9,9 @@
 </head>
 
 <%
-// get the students from the request object (sent by servlet)
-	List<Cliente> theStudents = 
-			(List<Cliente>) request.getAttribute("STUDENT_LIST");
+// get the clientes from the request object (sent by servlet)
+	List<Cliente> theClientes = 
+			(List<Cliente>) request.getAttribute("CLIENTE_LIST");
 %>
 
 <body>
@@ -29,19 +29,19 @@
 			<table>
 			
 				<tr>
-					<th>First Name</th>
-					<th>Last Name</th>
-					<th>Email</th>
+					<th>Nombre</th>
+					<th>Apellido</th>
+					<th>Telefono</th>
 				</tr>
 				
 				<%
-								for (Cliente tempStudent : theStudents) {
+								for (Cliente tempCliente : theClientes) {
 								%>
 				
 					<tr>
-						<td> <%= tempStudent.getNombre() %> </td>
-						<td> <%= tempStudent.getApellido() %> </td>
-						<td> <%= tempStudent.getTelefono() %> </td>
+						<td> <%= tempCliente.getNombre() %> </td>
+						<td> <%= tempCliente.getApellido() %> </td>
+						<td> <%= tempCliente.getTelefono() %> </td>
 					</tr>
 				
 				<% } %>

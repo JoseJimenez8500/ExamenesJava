@@ -58,8 +58,8 @@ public class TestCliente extends HttpServlet {
 				String nombre = myRs.getString("nombre");
 				String apellido = myRs.getString("apellido");
 				String telefono = myRs.getString("telefono");
-				String correo = myRs.getString("correo");
-				out.println(nombre+" "+apellido+" "+telefono+" "+correo);
+				
+				out.println(nombre+" "+apellido+" "+telefono);
 			}
 		}
 		catch (Exception exc) {
